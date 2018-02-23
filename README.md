@@ -63,8 +63,9 @@ Test with postman.
 ## Initialize Mongoose
 
 1. `npm install mongoose --save`
+1. `mkdir db; touch db/db.js`
 
-server.js:
+db/db.js:
 
 ```javascript
 const mongoose = require('mongoose');
@@ -73,6 +74,12 @@ mongoose.connect('mongodb://localhost:27017/meancrud');
 mongoose.connection.once('open', ()=>{
     console.log('connected to mongoose...');
 });
+```
+
+server.js:
+
+```javascript
+require('./db/db');
 ```
 
 ## Create Todo Model
